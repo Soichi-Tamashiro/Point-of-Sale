@@ -41,7 +41,10 @@
             TextInput:
                 hint_text: "Username"
                 multiline: False
+                focus: True
+                on_text_validate: pwd_field.focus = True
             TextInput:
+                id: pwd_field
                 hint_text: "Password"
                 multiline: False
         Label:
@@ -53,5 +56,6 @@
             height: 40
             text: "Sign In"
             background_color: (.06,.45,.45,1)
+            background_normal: ''
         Label:
             id: sp2
