@@ -37,8 +37,15 @@
             orientation: "vertical"
             spacing: 10
             size_hint_y: None
-            height: 80
+            height: 100
+            Label:
+                id: info
+                text: ''
+                markup: True
+                size_hint_y: None
+                height: 20
             TextInput:
+                id: username_field
                 hint_text: "Username"
                 multiline: False
                 focus: True
@@ -47,6 +54,7 @@
                 id: pwd_field
                 hint_text: "Password"
                 multiline: False
+                password: True
         Label:
             id: sp
             size_hint_y: None
@@ -57,5 +65,6 @@
             text: "Sign In"
             background_color: (.06,.45,.45,1)
             background_normal: ''
+            on_release: root.validate_user()
         Label:
             id: sp2
