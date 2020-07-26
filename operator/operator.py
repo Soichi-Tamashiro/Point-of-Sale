@@ -16,7 +16,8 @@ class OperatorWindow(BoxLayout):
             products_container.add_widget(details)
 
             code = Label(text='Code', size_hint_x=.2, color=(.06, .45, .45, 1))
-            name = Label(text='Product One', size_hint_x=.3)
+            name = Label(text='Product One', size_hint_x=.3,
+                         color=(.06, .45, .45, 1))
             qty = Label(text='1', size_hint_x=.1, color=(.06, .45, .45, 1))
             disc = Label(text='0.00', size_hint_x=.1,
                          color=(.06, .45, .45, 1))
@@ -30,6 +31,21 @@ class OperatorWindow(BoxLayout):
             details.add_widget(disc)
             details.add_widget(price)
             details.add_widget(total)
+
+            # Update Preview
+            pname = "Product One"
+            pprice = 1.00
+            qty = str(1)
+            preview = self.ids.receipt_preview
+            prev_text = preview.text
+            _prev = prev_text.find('`')
+            if (_prev > 0):
+                prev_text = prev_text[:_prev]
+
+            purchase_total = '`\n\nTotal\t\t\t\t\t\t\t\t0.00'
+            nu_preview = '\n'.join(
+                [prev_text,pname + '\t\t\t\tx' + str(pprice),purchase_total])
+            preview.text = nu_preview
 
 
 class OperatorApp(App):
